@@ -1,0 +1,227 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+project.ext.isSprTomcatProject = true
+
+dependencies {
+    api group: 'com.spr.oauth-core', name: 'oauth-core', version: '1.0'
+    api group: 'com.spr.http-client', name: 'http-client', version: '0.0.8'
+    api group: 'com.spr.json', name: 'json', version: '1.0'
+    api group: 'com.spr.json-simple', name: 'json-simple', version: '1.1'
+    api group: 'net.minidev', name: 'json-smart', version: '2.4.9'
+    api group: 'com.spr.jsonic', name: 'jsonic', version: '1.2.0'
+    api group: 'com.spr.mahout-collections', name: 'mahout-collections', version: '1.0'
+    api group: 'com.spr.mahout-math', name: 'mahout-math', version: '0.6'
+    api group: 'com.spr.jmockit', name: 'jmockit', version: '1.0.0'
+    api group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.5.4'
+    api(group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '9.37.2') {
+        exclude group: 'net.minidev', module: 'json-smart'
+    }
+    api group: 'com.spr.htmlcleaner', name: 'htmlcleaner', version: '2_1'
+    api group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.2'
+    api group: 'org.elasticsearch', name: 'elasticsearch', version: '1.4.1-rest-1.0.228'
+    api group: 'com.sprinklr', name:'owasp-java-html-sanitizer', version:'20180219.3.3'
+    api group: 'com.spr.elasticsearch-analysis-kuromoji', name: 'elasticsearch-analysis-kuromoji', version: '2.4.4-14'
+    api group: 'com.spr.google.adwords', name: 'google.adwords', version: '1.2.0'
+    api group: 'com.spr.icu4j', name: 'icu4j', version: '53.1'
+    api group: 'com.spr.jna', name: 'jna', version: '4.1.0'
+    api group: 'com.spr.lucene-analyzers-common', name: 'lucene-analyzers-common', version: '4.10.2'
+    api group: 'com.spr.lucene-analyzers-icu', name: 'lucene-analyzers-icu', version: '4.10.2'
+    api group: 'com.spr.lucene-analyzers-kuromoji', name: 'lucene-analyzers-kuromoji', version: '4.10.2-2'
+    api group: 'com.spr.lucene-analyzers-smartcn', name: 'lucene-analyzers-smartcn', version: '4.10.2'
+    api group: 'com.spr.lucene-analyzers-stempel', name: 'lucene-analyzers-stempel', version: '4.10.2'
+    api group: 'com.spr.lucene-core', name: 'lucene-core', version: '4.10.2'
+    api group: 'com.spr.lucene-expressions', name: 'lucene-expressions', version: '4.10.2'
+    api group: 'com.spr.lucene-grouping', name: 'lucene-grouping', version: '4.10.2'
+    api group: 'com.spr.lucene-highlighter', name: 'lucene-highlighter', version: '4.10.2'
+    api group: 'com.spr.lucene-join', name: 'lucene-join', version: '4.10.2'
+    api group: 'com.spr.lucene-memory', name: 'lucene-memory', version: '4.10.2'
+    api group: 'com.spr.lucene-misc', name: 'lucene-misc', version: '4.10.2'
+    api group: 'com.spr.lucene-queries', name: 'lucene-queries', version: '4.10.2'
+    api group: 'com.spr.lucene-queryparser', name: 'lucene-queryparser', version: '4.10.2'
+    api group: 'com.spr.lucene-sandbox', name: 'lucene-sandbox', version: '4.10.2'
+    api group: 'com.spr.lucene-spatial', name: 'lucene-spatial', version: '4.10.2'
+    api group: 'com.spr.lucene-suggest', name: 'lucene-suggest', version: '4.10.2'
+    api group: 'com.spr.spatial4j', name: 'spatial4j', version: '0.4.1'
+    api group: 'com.spr.tornado-plugin', name: 'tornado-plugin', version: '1.0'
+    api group: 'com.spr.elasticsearch-analysis-vietnamese', name: 'elasticsearch-analysis-vietnamese', version: '0.1.1'
+    api(group: 'com.sprinklr.intuition', name: 'classification', version: '1.0') {
+        exclude group: 'com.google.protobuf', module: 'protobuf-java'
+    }
+
+    api group: 'com.spr.google-api-translate-java', name: 'google-api-translate-java', version: '0.97'
+
+    api group: 'com.spr.detectlanguage', name: 'detectlanguage', version: '1.0.5-2'
+
+    api group: 'com.ning', name: 'async-http-client', version: '1.9.15'
+
+    api group: 'io.netty', name: 'netty-all', version: '4.1.111.Final'
+
+    api group: 'com.google.api-client', name: 'google-api-client', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-android', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-appengine', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-gson', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-jackson2', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-java6', version: '1.21.0'
+    api group: 'com.google.api-client', name: 'google-api-client-servlet', version: '1.21.0'
+
+    api group: 'com.google.apis', name: 'google-api-services-analytics', version: 'v3-rev124-1.21.0'
+    api group: 'com.google.apis', name: 'google-api-services-plus', version: 'v1-rev341-1.21.0'
+    api group: 'com.google.apis', name: 'google-api-services-youtube', version: 'v3-rev139-1.20.0'
+    api group: 'com.google.apis', name: 'google-api-services-youtubeAnalytics', version: 'v2-rev36-1.21.0'
+    api group: 'com.google.apis', name: 'google-api-services-youtubereporting', version: 'v1-rev7-1.21.0'
+
+    api group: 'com.google.http-client', name: 'google-http-client', version: '1.21.0'
+    api group: 'com.google.http-client', name: 'google-http-client-android', version: '1.21.0'
+    api group: 'com.google.http-client', name: 'google-http-client-appengine', version: '1.21.0'
+    api group: 'com.google.http-client', name: 'google-http-client-jackson', version: '1.21.0'
+    api group: 'com.google.http-client', name: 'google-http-client-jackson2', version: '1.21.0'
+    api group: 'com.google.http-client', name: 'google-http-client-jdo', version: '1.21.0'
+
+    api group: 'com.google.oauth-client', name: 'google-oauth-client', version: '1.33.3'
+    api group: 'com.google.oauth-client', name: 'google-oauth-client-appengine', version: '1.21.0'
+    api group: 'com.google.oauth-client', name: 'google-oauth-client-java6', version: '1.21.0'
+    api group: 'com.google.oauth-client', name: 'google-oauth-client-jetty', version: '1.21.0'
+    api group: 'com.google.oauth-client', name: 'google-oauth-client-servlet', version: '1.21.0'
+
+    api group: 'com.zaxxer', name: 'HikariCP', version: '2.4.1'
+
+    api group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.40'
+    api group: 'org.glassfish.jersey.core', name: 'jersey-server', version: '2.40'
+    api group: 'org.glassfish.jersey.ext', name: 'jersey-spring4', version: '2.40'
+    api group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: '2.40'
+
+    api group: 'org.springframework', name: 'spring-jdbc', version: '5.3.33-wso2v1'
+    api group: 'org.springframework', name: 'spring-jms', version: '5.3.33-wso2v1'
+    api group: 'org.springframework', name: 'spring-test', version: '5.3.33-wso2v1'
+
+    api(group: 'org.codehaus.jackson', name: 'jackson-jaxrs', version: '1.9.13') {
+        exclude group: "org.codehaus.jackson", module: "jackson-mapper-asl"
+    }
+    api(group: 'org.codehaus.jackson', name: 'jackson-xc', version: '1.9.13') {
+        exclude group: "org.codehaus.jackson", module: "jackson-mapper-asl"
+    }
+
+    api group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    compileOnly group: 'javax.servlet.jsp', name: 'jsp-api', version: '2.0'
+    compileOnly group: 'javax.servlet.jsp.jstl', name: 'jstl-api', version: '1.2'
+    api group: 'javax.jms', name: 'jms-api', version: '1.1-rev-1'
+    api group: 'javax.transaction', name: 'transaction-api', version: '1.1'
+    api group: 'javax.inject', name: 'javax.inject', version: '1'
+    api group: 'org.glassfish', name: 'javax.faces', version: '2.2.20'
+    api group: 'javax.security.jacc', name: 'javax.security.jacc-api', version: '1.4'
+    api group: 'javax.xml', name: 'jaxrpc-api', version: '1.1'
+    api group: 'com.sun.facelets', name: 'jsf-facelets', version: '1.1.11'
+    api group: 'stax', name: 'stax-api', version: '1.0.1'
+
+    api group: 'com.google.code.findbugs', name: 'jsr305', version: '2.0.1'
+    api group: 'com.google.code.gson', name: 'gson', version: '2.9.1'
+    api group: 'com.google.inject', name: 'guice', version: '3.0'
+    api group: 'com.google.inject.extensions', name: 'guice-assistedinject', version: '3.0'
+    api group: 'com.google.protobuf', name: 'protobuf-java', version: '3.25.5'
+
+    api group: 'wsdl4j', name: 'wsdl4j', version: '1.6.2'
+
+    api group: 'commons-cli', name: 'commons-cli', version: '1.2'
+    api group: 'commons-codec', name: 'commons-codec', version: '1.10'
+    api group: 'commons-configuration', name: 'commons-configuration', version: '1.8'
+    api group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    api group: 'commons-discovery', name: 'commons-discovery', version: '0.4'
+    api group: 'org.apache.commons', name: 'commons-digester3', version: '3.2'
+    api group: 'org.apache.commons', name: 'commons-exec', version: '1.2'
+    api group: 'commons-fileupload', name: 'commons-fileupload', version: '1.5'
+    api group: 'org.apache.commons', name: 'commons-jexl', version: '2.1.1'
+    api group: 'commons-logging', name: 'commons-logging', version: '1.2'
+    api group: 'org.apache.commons', name: 'commons-math', version: '2.2'
+    api group: 'commons-pool', name: 'commons-pool', version: '1.5.7'
+    api group: 'org.apache.commons', name: 'commons-pool2', version: '2.0'
+    api group: 'commons-validator', name: 'commons-validator', version: '1.7'
+
+    api group: 'com.spr.java-image-scaling', name: 'java-image-scaling', version: '0.8.5'
+    api(group: 'org.apache.tika', name: 'tika-parsers', version: '1.28.3') {
+        exclude group: "org.apache.poi", module: "poi"
+        exclude group: "org.apache.poi", module: "poi-ooxml"
+        exclude group: "org.apache.poi", module: "poi-scratchpad"
+    }
+    api group: 'org.jsoup', name: 'jsoup', version: '1.15.3'
+
+    api group: 'org.opensaml', name: 'opensaml', version: '2.6.5'
+    api group: 'org.opensaml', name: 'openws', version: '1.5.4'
+    api group: 'org.opensaml', name: 'xmltooling', version: '1.4.4'
+
+    api group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.4.1'
+
+    api group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.2'
+
+    api group: 'org.apache.groovy', name: 'groovy-all', version: '4.0.15'
+
+    api group: 'org.mvel', name: 'mvel2', version: '2.5.2.Final'
+
+    api group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.authzserver', version: '0.31'
+    api group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.common', version: '0.31'
+    api group: 'org.apache.oltu.oauth2', name: 'org.apache.oltu.oauth2.resourceserver', version: '0.31'
+
+    api group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.9.2'
+    api group: 'asm', name: 'asm', version: '3.3.1'
+    api group: 'aopalliance', name: 'aopalliance', version: '1.0'
+
+    api group: 'org.apache.velocity', name: 'velocity', version: '1.7'
+
+    api group: 'org.apache.poi', name: 'poi', version: '4.1.2'
+    api group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
+    api group: 'org.apache.poi', name: 'poi-scratchpad', version: '4.1.2'
+    api group: 'org.apache.commons', name: 'commons-math3', version: '3.6'
+
+    api group: 'com.fasterxml.util', name: 'java-merge-sort', version: '1.1.0'
+    api group: 'com.twilio.sdk', name: 'twilio-java-sdk', version: '6.3.0'
+    api group: 'com.spr.twelvemonkeys-servlet', name: 'twelvemonkeys-servlet', version: '3.0-rc5'
+
+    api group: 'com.twelvemonkeys.common', name: 'common-image', version: '3.2.1'
+    api group: 'com.twelvemonkeys.common', name: 'common-io', version: '3.2.1'
+    api group: 'com.twelvemonkeys.common', name: 'common-lang', version: '3.2.1'
+    api group: 'com.twelvemonkeys.imageio', name: 'imageio-core', version: '3.2.1'
+    api group: 'com.twelvemonkeys.imageio', name: 'imageio-metadata', version: '3.7.1'
+    api group: 'com.twelvemonkeys.imageio', name: 'imageio-tiff', version: '3.3.2'
+    api group: 'com.twelvemonkeys.imageio', name: 'imageio-jpeg', version: '3.8.2'
+
+    api group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.985'
+
+    api group: 'org.apache.httpcomponents', name: 'httpcore-nio', version: '4.4.5'
+    api group: 'org.apache.httpcomponents', name: 'httpasyncclient', version: '4.1.2'
+    api group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.4.1'
+
+    api group: 'io.prometheus', name: 'simpleclient_httpserver', version: '0.9.0'
+
+    api project(':care:care-community-client')
+    api project(':infra')
+    api project(':text-analysis')
+    api project(':universal-entities')
+    api project(':core')
+    api project(':chat:chat-client')
+    api project(':jersey-application')
+    api project(':intuition:intuition-ms-client')
+    api project(':grabber:grabber-processors')
+    api project(':infra:infra-graphql-web')
+    api project(':graphql:graphql-care')
+    api project(':open-api:open-api-internal:open-api-internal-client')
+
+    testImplementation group: 'junit', name: 'junit', version: "$JUNIT_VERSION"
+    testImplementation group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '4.17.0'
+    testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.8'
+    testImplementation group: 'org.powermock', name: 'powermock-module-junit4', version: '1.6.1'
+    testImplementation group: 'org.powermock', name: 'powermock-api-mockito', version: '1.6.1'
+}
+
+application {
+    mainClass = 'com.example.ZooKeeperClient'
+}
